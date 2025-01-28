@@ -1,0 +1,22 @@
+{
+  "compilerOptions": {
+    "lib": ["ES2023"],
+    "module": "node16",
+    "target": "ES2023",                   // Módulos ES6 (import/export)
+    "moduleResolution": "node",             // Resolução de módulos do Node.js
+    "esModuleInterop": true,                // Garantir compatibilidade com importações CommonJS
+    "skipLibCheck": true,                   // Ignorar a checagem de tipos de bibliotecas
+    "forceConsistentCasingInFileNames": true,
+    "outDir": "./dist",                     // Onde os arquivos JS compilados serão colocados
+    "rootDir": "./src",                     // Diretório de origem dos arquivos TypeScript
+    "resolveJsonModule": true,
+    "allowSyntheticDefaultImports": true    // Permitir importações padrão de módulos CommonJS
+    
+  },
+  "include": [
+    "src/**/*.ts"
+  ]
+}
+
+
+
