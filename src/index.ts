@@ -3,7 +3,9 @@
 import express, { Request, Response, NextFunction, response } from 'express';
 import { Pet } from './Pet';
 import { Petshop } from './Petshop';
-import { PetshopController }  from "./controlers/PetshopController";
+import { PetshopController }  from "./controllers/PetshopController";
+import { PetController } from "./controllers/PetController"
+import { checkExistsUserAccount }  from "./middlewares/checkExistsUserAccount"
 import { request } from 'node:http';
 
 
@@ -18,11 +20,11 @@ import { request } from 'node:http';
   server.get('/petshops/:id',PetshopController.getPetShopById)
   server.post('/petshops',PetshopController.postPetshop)
 
-  server.get('/pets',PetshopController.checkExistsUserAccount,PetshopController.getPet)
-  server.post('/pets',PetshopController.checkExistsUserAccount,PetshopController.postPet)
-  server.put('/pets/:id',PetshopController.checkExistsUserAccount,PetshopController.putPet)
-  server.patch('/pets/:id/vaccination',PetshopController.checkExistsUserAccount,PetshopController.patchPet)
-  server.delete('/pets/:id',PetshopController.checkExistsUserAccount,PetshopController.deletePet)
+  server.get('/pets',checkExistsUserAccount,PetController.getPet)
+  server.post('/pets',checkExistsUserAccount,PetController.postPet)
+  server.put('/pets/:id',checkExistsUserAccount,PetController.putPet)
+  server.patch('/pets/:id/vaccination',checkExistsUserAccount,PetController.patchPet)
+  server.delete('/pets/:id',checkExistsUserAccount,PetController.deletePet)
 
   server.listen(3000, () => {
     console.log('Server is running on port 3000');
