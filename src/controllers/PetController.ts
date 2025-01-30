@@ -39,7 +39,7 @@ export class PetController{
             return response.status(400).json("error: nao foi possivel criar o pet")
         }
 
-        await petService.updatePet(pet,dados)
+        await petService.updatePet(req.params.id,dados)
         return  response.status(200).json({message: "pet alterado com sucesso"})
         }
 
@@ -62,7 +62,7 @@ export class PetController{
         
             return response.status(400).json("error: nao foi possivel criar o pet")
         }
-        await petService.delete(pet)
+        await petService.delete(req.params.id)
         return  response.status(200).json({message: "pet deletado com sucesso"})
     } 
 

@@ -1,5 +1,4 @@
 
-
 import express, { Request, Response, NextFunction, response } from 'express';
 import { Pet } from './Pet';
 import { Petshop } from './Petshop';
@@ -8,9 +7,6 @@ import { PetController } from "./controllers/PetController"
 import { checkExistsUserAccount }  from "./middlewares/checkExistsUserAccount"
 import { request } from 'node:http';
 
-
-
-  let clients: Petshop[] = [];
   let usuario
   const server = express();
   server.use(express.json());
